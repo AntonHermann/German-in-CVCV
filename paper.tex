@@ -17,24 +17,17 @@
 
 \section{test}
  
-\begin{tikzpicture}
-    \foreach \x in {0,1,...,4} {
-        \node (C\x) at (1.5 * \x       , 0) {$C_{\x}$};
-        \node (V\x) at (1.5 * \x + 0.75, 0) {$V_{\x}$};
-    }
+\begin{structure}
+    \drawCV{4}
     \wordstart
-
-    \foreach \p/\pos in {j/C1, a/V2, g/C3, \textschwa/V3, n/C4} {
-        \node (p\pos) at (\pos |-, -1) {\p};
-    }
-    \foreach \pos in {C1, V2, C3, V3, C4} {
-        \draw (\pos) -- (p\pos);
-    }
-
-    \longvowel{2}
+    \consonant{j}
+    \longvowel{a}
+    \consonant{g}
+    \vowel{\textschwa}
+    \consonant{n}
+    \fen
 
     \relation{Gov}{V1}{V0}
-    \fen{V4}
-\end{tikzpicture}
+\end{structure}
 
 \end{document}
