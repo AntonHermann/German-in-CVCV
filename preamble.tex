@@ -1,0 +1,26 @@
+\usepackage{tipa}
+\usepackage{tikz-dependency}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+% =============================================================
+% word structure drawing commands
+% =============================================================
+\newcommand\relation[3]{% params: Text, Coord1, Coord2
+    \draw[->] (#2.north) ++(-0.1,0) -- ++(0,.2) -- node[above]{#1} (#3 |-, .5) -- (#3);
+}
+\newcommand\norelation[3]{% params: Text, Coord1, Coord2
+    \draw[->] (#2.north) ++(-0.1,0) -- ++(0,.2) -- node[above]{#1} node{\tiny //} (#3 |-, .5) -- (#3);
+}
+\newcommand\longvowel[1]{% param: Vowel index
+    \def\othernum{\number\numexpr#1-1\relax}
+    \draw[dashed] (pV#1) -- (V\othernum);
+    \relation{Lic}{V#1}{V\othernum}
+}
+\newcommand\wordstart[1][0]{% opt param: vowel/consonant index
+    \node (word-start) at (1.5*#1 + 0.75/2, -1) {\#};
+    \draw (C#1) -- (word-start) -- (V#1);
+}
+\newcommand\fen[1]{% param: Vowel index
+    \draw[<-] (#1.north) -- ++(0,0.2) -- node[above]{Gov} ++(1,0);
+}
