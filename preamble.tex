@@ -1,10 +1,20 @@
 \usepackage{import}
+\usepackage[
+  % colorlinks,
+  % linkcolor=blue,
+  % Include section numbers in pdf bookmarks
+  bookmarksnumbered=true
+]{hyperref}
+
 \usepackage{tipa}
-\usepackage{tikz-dependency}
+
 \usepackage{tikz}
-\usepackage{xspace}
-\usepackage{csquotes}
 \usetikzlibrary{positioning}
+\usepackage{tikz-dependency}
+
+\usepackage{xspace}
+
+\usepackage{csquotes}
 
 \usepackage[
   % natbib=true,
@@ -15,6 +25,9 @@
   alldates=iso,
   citetracker=true,
 ]{biblatex}
+
+% better automatic ref handling (supports capitalizing ref names)
+\usepackage[nameinlink,noabbrev]{cleveref}
 
 % an example word
 \newcommand\ex[1]{\emph{#1}}
