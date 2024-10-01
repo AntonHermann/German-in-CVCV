@@ -103,3 +103,27 @@
 }{
   \end{tikzpicture}
 }
+
+% COMMANDS TO BE USED DURING EDITING
+
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\color{red}\sffamily\scriptsize}
+% print marginnote on the left
+\newcommand\leftmarginnote[1]{\reversemarginpar\marginnote{#1}\normalmarginpar}
+\newcommand\rawmarker[1][2pt]{\rule{#1}{9pt}}
+% a simple red box, used to mark positions in the text
+\newcommand\marker{\textcolor{red}{\rawmarker}\xspace}
+\newcommand\lmarknote[1]{\leftmarginnote{#1}\marker}
+\newcommand\marknote[1]{\marginnote{#1}\marker}
+\newcommand\marginmarker[1][2pt]{\marginnote{\rawmarker[#1]}}
+
+\newcommand\wordunsure[1]{\textcolor{red}{#1\marginmarker}\xspace}
+
+% should be translated later
+\newcommand\tr[1]{\textcolor{orange}{#1\marginmarker}\xspace}
+% comma?
+\newcommand\co{\textbf{\color{orange},\marginmarker[1pt]}\xspace}
+\newcommand\TODO[1]{\textcolor{red}{\textbf{\setlength{\fboxrule}{3pt}\fbox{TODO} #1}}}
+\newenvironment{deleted}{\begingroup\color{gray}}{\endgroup}
+% annotation (structure, ..)
+\newcommand\annot[1]{\textcolor{purple}{#1\marginmarker}\xspace}
