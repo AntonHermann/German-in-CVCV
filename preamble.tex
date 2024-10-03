@@ -45,14 +45,14 @@
 \newenvironment{structure}{
   \setcounter{vowel}{0}
   \setcounter{consonant}{0}
-
+  %
   \newcommand\drawCV[1]{% param: count
     \foreach \x in {0,1,...,##1} {
         \node (C\x) at (1.5 * \x       , 0) {$C_{\x}$};
         \node (V\x) at (1.5 * \x + 0.75, 0) {$V_{\x}$};
     }
   }
-
+  %
   \newcommand\relation[3]{% params: Text, Coord1, Coord2
     \draw[->] (##2.north) ++(-0.1,0) -- ++(0,.2) -- node[above]{##1} (##3 |-, .5) -- (##3);
   }
@@ -63,7 +63,7 @@
   \newcommand\NoGov[2]{\norelation{Gvt}{##1}{##2}}
   \newcommand\Lic[2]{\relation{Lic}{##1}{##2}}
   \newcommand\NoLic[2]{\norelation{Lic}{##1}{##2}}
-
+  %
   \newcommand\V[2][]{% params: [style] vowel
     \edef\pos{V\thevowel}
     \node[##1] (p\pos) at (\pos |-, -1) {##2};
@@ -79,7 +79,7 @@
   \newcommand\emptyV{
     \stepcounter{vowel}
   }
-
+  %
   \newcommand\longV[1]{% param: vowel
     \edef\firstpos{V\thevowel}
     \stepcounter{vowel}
@@ -99,11 +99,13 @@
     \edef\pos{V\thevowel}
     \draw[<-] (\pos.north) -- ++(0,0.2) -- node[above]{Gov} ++(1,0);
   }
+  \par\noindent%
   \begin{tikzpicture}[
     floating/.style={draw opacity=0}
   ]
 }{
   \end{tikzpicture}
+  \par\noindent%
 }
 
 % COMMANDS TO BE USED DURING EDITING
