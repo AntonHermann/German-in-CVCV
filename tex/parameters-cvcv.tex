@@ -39,8 +39,46 @@ that schwa doesn't license in German.
 
 \subsection{FEN}
 The lateral actorship of FEN can be determined by their effect
+on preceeding Nuclei and Onsets. \Cref{tab:params_fen} lists
+all possible combinations.
 
-FEN do not license, FEN do govern
+\begin{table}
+  \centering
+  \begin{tabular}{c l | c c | c}
+    & & \multicolumn{2}{c|}{effect on preceeding Nuclei:} & effect on preceding Onsets: \\
+    &        & existence & vowels in final     & word-final consonants and \\
+    & & of \ctx{...RT\#} & and internal        & internal Codas \\ 
+    & FEN can   &        & closed syllables    & \\
+  \cline{2-5}
+  a.& + license &     &                        & contrast \\
+    & + govern  & yes & contrast:              & word-final consonant = inter \\
+    &           &     & vowel in \ctx{\_C\#} = & vocalic \\
+  \cdashline{2-3}\cdashline{5-5}
+  b.& + license &     & vowel in an            & contrast \\
+    & - govern  & no  & open syllable          & word-final consonant = post- \\
+    &           &     &                        & Coda \\
+  \cline{2-5}
+  c.& - license &     &                        & contrast \\
+    & + govern  & yes &                        & word-final consonant is in the \\
+    &           &     & behaves alike          & weakest possible situation \\
+  \cdashline{2-3}\cdashline{5-5}
+  d.& - license & \multirow{2}{*}{no} &        & \multirow{2}{*}{behaves alike} \\
+    & - govern  &     &                        & \\
+  \cline{2-5}
+  \end{tabular}
+  \caption[Parameters of FEN]{%
+    Parameters of FEN
+    {\small(from \cite[p.~545]{scheer2004})}}
+  \label{tab:params_fen}
+\end{table}
+
+Final devoicing illustrates that word-final consonants behave like Codas.
+It isn't clear whether they are weaker than internal Codas, either way the
+parametrization of german FEN must be one of the lower two and in consequence
+FEN are proper licensors.
+
+Words like \ex{Hast}, \ex{Hand} and \ex{Kiosk} demonstrate that there
+are \ctx{...RT\#} words in German, therefore FEN must be able to govern.
 
 
 \subsection{Initial CV}
