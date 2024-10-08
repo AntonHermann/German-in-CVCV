@@ -3,11 +3,47 @@ Whether long vowels are head-final or head-initial determines
 if a language allows super-heavy Rhymes, i.e. whether Rhymes are
 allowed to dominate up to three skeletal slots instead of only two.
 
-If long vowels are head-initial, the second Nucleus has to be
-licensed by a following nucleus, \TODO{}
+If long vowels are head-initial (\cref{fig:long vowels:init}),
+the second Nucleus has to be licensed by a following nucleus.
+If it fails to be licensed, a short vowel surfaces.
+
+Otherwise (\cref{fig:long vowels:fin}),
+if the second Nucleus is the head of the long vowel,
+it licenses the preceding Nucleus and the long vowel is self-licensing,
+i.e. it doesn't need any external support.
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{.49\textwidth}
+    \centering
+    \begin{structure}
+      \drawCV{1}
+      \C{C}
+      \V{V}
+      % \stepcounter{consonant}
+      \draw[dashed] (pV0) -- (V1);
+      \draw[<-] (V1.north) -- ++(0,0.2) -- node[above]{Lic} ++(1,0);
+    \end{structure}
+    \caption{alternating long vowels are head-initial}
+    \label{fig:long vowels:init}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{.49\textwidth}
+    \centering
+    \begin{structure}
+      \drawCV{1}
+      \C{C}
+      \longV{V}
+    \end{structure}
+    \caption{non-alternating long vowels are head-final}
+    \label{fig:long vowels:fin}
+  \end{subfigure}
+  \caption{long vowel headedness}
+\end{figure}
 
 \paragraph{In german:}
-No alternation in vowel length $\to$ self-licensing $\to$ head-final
+Since there are no alternations in vowel length in German,
+long vowels are self-licensing and therefore head-final.
 
 \TODO{Are super-heavy Rhymes allowed? (VVCC)}
 
