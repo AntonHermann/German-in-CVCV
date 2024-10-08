@@ -44,6 +44,9 @@
 % \usepackage{caption}
 \usepackage{subcaption}
 
+% caption containing a source (most likely \cite)
+\newcommand\captionsource[2]{\caption[#1]{#1 {\small (from #2)}}}
+
 % an example word
 \newcommand\ex[1]{\emph{#1}}
 % the CVCV / strict-CV model
