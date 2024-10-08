@@ -1,0 +1,38 @@
+% Include this file in the preamble of a document to turn on pagecount mode:
+% tries to hide everything that wouldn't be counted as text
+
+\usepackage{verbatim}
+
+% this is such that later on in the document, if it should be necessary
+% to hide something manually, \ifdef{\ispagecountmode}{true}{false}
+% can be used
+\newcommand\ispagecountmode{1}
+
+\AtBeginDocument{
+  \def\maketitle{}
+  \def\affirmation{}
+  \def\tableofcontents{}
+  \def\listoffigures{}
+  \def\listoftables{}
+  \def\lstlistoflistings{}
+  \def\printglossaries{}
+  \renewcommand\bibliography[1]{}
+  \renewcommand\textipa[1]{}
+  \renewcommand\cite[2][]{#2}
+  \renewcommand\parencite[2][]{#2}
+  \renewenvironment{figure}[1][]{\expandafter\comment}{\expandafter\endcomment}
+  \renewenvironment{figure*}[1][]{\expandafter\comment}{\expandafter\endcomment}
+  \renewenvironment{table}[1][]{\expandafter\comment}{\expandafter\endcomment}
+  \renewenvironment{structure}{\expandafter\comment}{\expandafter\endcomment}
+  % remove page breaks
+  \def\cleardoublepage{\par}
+  \def\clearpage{\par}
+  \renewcommand{\TODO}[1]{}
+  % make chapters inline -> no page breaks, no added spacing
+  % \titleformat{\chapter}[hang]{\normalfont\Large\sffamily}{\thechapter}{1em}{}
+  % \titlespacing{\chapter}{0pt}{*1}{*1}
+  % \titleclass{\chapter}{straight}
+  \renewcommand\section[2][]{#2\par}
+  \renewcommand\subsection[2][]{#2\par}
+  \renewcommand\subsubsection[2][]{#2\par}
+}
