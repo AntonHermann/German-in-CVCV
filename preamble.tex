@@ -37,9 +37,6 @@
   citetracker=true,
 ]{biblatex}
 
-% better automatic ref handling (supports capitalizing ref names)
-\usepackage[nameinlink,noabbrev]{cleveref}
-
 % Subfigures
 % \usepackage{caption}
 \usepackage{subcaption}
@@ -47,8 +44,11 @@
 % caption containing a source (most likely \cite)
 \newcommand\captionsource[2]{\caption[#1]{#1 {\small (from #2)}}}
 
-% \usepackage[acronym, toc]{glossaries}
-\newcommand\gls[1]{#1\xspace}
+\usepackage[acronym, toc]{glossaries}
+\input{glossary.tex}
+
+% better automatic ref handling (supports capitalizing ref names)
+\usepackage[nameinlink,noabbrev]{cleveref}
 
 \newcommand\ti\textipa
 % an example word
