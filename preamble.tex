@@ -47,6 +47,10 @@
 % caption containing a source (most likely \cite)
 \newcommand\captionsource[2]{\caption[#1]{#1 {\small (from #2)}}}
 
+% \usepackage[acronym, toc]{glossaries}
+\newcommand\gls[1]{#1\xspace}
+
+\newcommand\ti\textipa
 % an example word
 \newcommand\ex[1]{\emph{#1}}
 % the CVCV / strict-CV model
@@ -145,7 +149,7 @@
 \newcommand\tr[1]{\textcolor{orange}{#1\marginmarker}\xspace}
 % comma?
 \newcommand\co{\textbf{\color{orange},\marginmarker[1pt]}\xspace}
-\newcommand\TODO[1]{\textcolor{red}{\textbf{\setlength{\fboxrule}{3pt}\fbox{TODO} #1}}}
+\newcommand\TODO[1]{{\color{red}\bfseries\setlength{\fboxrule}{3pt}\fbox{TODO} #1}}
 \newenvironment{deleted}{\begingroup\color{gray}}{\endgroup}
 % annotation (structure, ..)
 \newcommand\annot[1]{\textcolor{purple}{#1\marginmarker}\xspace}
