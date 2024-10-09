@@ -1,0 +1,2 @@
+- domain final government
+- "If in addition the suffix -gar is analytic (see §§24,249,349,630 for discussion of this concept), i.e. if it does not enter the domain of the root" (scheer2004: p. 631)

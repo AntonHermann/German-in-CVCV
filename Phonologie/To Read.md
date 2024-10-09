@@ -1,0 +1,1 @@
+- Zusammenfassung bisheriger Ergebnisse zu Silbenstruktur: Ernst Pulgram: _Syllable, word, nexus, cursus_ 1970 (vgl. Vennemann 1986, S. 11)

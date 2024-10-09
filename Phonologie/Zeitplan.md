@@ -1,0 +1,12 @@
+- 1. Woche (23.9. - 29.9.)
+	- Wie sehen Analysen in *Government Phonology* aus?
+	- ~~Auftreten/Kontexte Schwa zusammenschreiben~~
+	- weitere [[Phonologische Prozesse im Deutschen]]
+	- [[Überblick relevante Konzepte aus CVCV]]
+	- [[Parametrisierung des Deutschen in CVCV]]
+- 2. Woche (30.10. - 6.10.)
+	- ~~Analyse einzelner Auftreten von Schwa~~
+	- Hintergrundkapitel schreiben
+- 3. Woche (7.10. - 13.10.)
+	- Hauptteil schreiben
+	- Intro, Conclusion schreiben
