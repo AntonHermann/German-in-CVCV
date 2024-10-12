@@ -1,0 +1,35 @@
+
+\paragraph{Obst}
+General \emph{problem} cases seem to be problematic for
+\CVCV as well, \ex{Obst} %(\ti{/o:p\o s\o t\o/})
+comes to mind here:
+The \gls{FEN} can only govern the Nucleus \tr{enclosed} by
+\ti{[s]} and \ti{[t]}, the preceding Nucleus can't be governed.
+
+\begin{structure}
+  \drawCV{5}
+  \wordstart
+  \C{\ti{P}}
+  \longV{o}
+  \C{p}
+  \emptyV
+  \C{s}
+  \emptyV
+  \C{t}
+  \fen
+  \Gov{V1}{V0}
+  \NoGov{V4}{V3}
+  \Gov{V5}{V4}
+\end{structure}
+
+\gls{IG} can't save the day either:
+While \ti{[s]} and \ti{[t]} do form a valid context for \gls{IG},
+which would then be able to govern the preceding Nucleus,
+this fails because \gls{IG} needs licensing support from a following
+Nucleus, but the \gls{FEN} in german can just govern, not license.
+
+The only other possibility is to resort to somewhat of a loophole:
+\ti{[st]} could be analyzed as a \emph{pseudosuffix}.
+In this case, there is a domain boundary between \ti{[p]}
+and \ti{[s]}, making \emph{V3} %TODO
+domain-final and therefore governed.
