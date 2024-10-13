@@ -1,3 +1,8 @@
+\usepackage{etoolbox}
+
+\newtoggle{fastcompile}
+\toggletrue{fastcompile}
+
 \usepackage{import}
 \usepackage[
   % colorlinks,
@@ -27,15 +32,37 @@
 % dashed lines in tables with \hdashline, \cdashline
 \usepackage{arydshln}
 
-\usepackage[
-  % natbib=true,
-  backend=biber,
-  style=authoryear,
-  % sorting=nty,
-  seconds=true,
-  alldates=iso,
-  citetracker=true,
-]{biblatex}
+\iftoggle{fastcompile}{
+  \newcommand\draftnote{(draft $\Rightarrow$ empty)}
+  % general
+  \renewcommand\tableofcontents{\section*{Contents \draftnote}}
+  % biblatex
+  \newcommand\addbibresource[1]{}
+  \newcommand\parencite[2][]{(#1 #2)}
+  \newcommand\printbibliography{\section*{Bibliography \draftnote}}
+  % glossaries
+  \newcommand\gls[1]{#1}
+  \newcommand\glspl[1]{#1}
+  % cleverref
+  \NewDocumentCommand\cref{v}{#1}
+  \NewDocumentCommand\Cref{v}{#1}
+}{
+  \usepackage[
+    % natbib=true,
+    backend=biber,
+    style=authoryear,
+    % sorting=nty,
+    seconds=true,
+    alldates=iso,
+    citetracker=true,
+  ]{biblatex}
+
+  \usepackage[acronym, toc]{glossaries}
+  \input{glossary.tex}
+
+  % better automatic ref handling (supports capitalizing ref names)
+  \usepackage[nameinlink,noabbrev]{cleveref}
+}
 
 % Subfigures
 % \usepackage{caption}
@@ -43,12 +70,6 @@
 
 % caption containing a source (most likely \cite)
 \newcommand\captionsource[2]{\caption[#1]{#1 {\small (from #2)}}}
-
-\usepackage[acronym, toc]{glossaries}
-\input{glossary.tex}
-
-% better automatic ref handling (supports capitalizing ref names)
-\usepackage[nameinlink,noabbrev]{cleveref}
 
 \newcommand\ti\textipa
 % an example word
