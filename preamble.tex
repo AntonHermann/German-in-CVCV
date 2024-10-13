@@ -76,6 +76,8 @@
 \newcommand\ex[1]{\emph{#1}}
 % the CVCV / strict-CV model
 \newcommand\CVCV{CVCV\xspace}
+% Standard Government Phonology
+\newcommand\SGP{Standard Government Phonology\xspace}
 % Phonological context (#RT, TT#, ...)
 \newcommand\ctx[1]{#1}
 
@@ -109,6 +111,14 @@
         \node (C\x) at (1.5 * \x       , 0) {$C_{\x}$};
         \node (V\x) at (1.5 * \x + 0.75, 0) {$V_{\x}$};
     }
+  }
+  \newcommand\drawVCV[1]{% param: count
+    \node (V0) at (1.5 * 0 + 0.75, 0) {$V_0$};
+    \foreach \x in {1,...,##1} {
+      \node (C\x) at (1.5 * \x       , 0) {$C_{\x}$};
+      \node (V\x) at (1.5 * \x + 0.75, 0) {$V_{\x}$};
+    }
+    \stepcounter{consonant}
   }
   %
   \newcommand\relation[3]{% params: Text, Coord1, Coord2
@@ -156,6 +166,9 @@
   \newcommand\fen{
     \edef\pos{V\thevowel}
     \draw[<-] (\pos.north) -- ++(0,0.2) -- node[above]{Gov} ++(1,0);
+  }
+  \newcommand\IG[2]{
+    \draw[->,double] (p##1) -- node[below]{IG} (p##2);
   }
   \par\noindent%
   \begin{tikzpicture}[
