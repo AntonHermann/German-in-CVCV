@@ -105,21 +105,21 @@
 % \usetikzlibrary{backgrounds}
 % \pgfsetlayers{background,main}
 
-\newenvironment{structure}{
+\newenvironment{structure}[1][1.5]{
   \setcounter{vowel}{0}
   \setcounter{consonant}{0}
   %
   \newcommand\drawCV[1]{% param: count
     \foreach \x in {0,1,...,##1} {
-        \node (C\x) at (1.5 * \x       , 0) {$C_{\x}$};
-        \node (V\x) at (1.5 * \x + 0.75, 0) {$V_{\x}$};
+        \node (C\x) at (#1 * \x           , 0) {$C_{\x}$};
+        \node (V\x) at (#1 * \x + 0.5 * #1, 0) {$V_{\x}$};
     }
   }
   \newcommand\drawVCV[1]{% param: count
-    \node (V0) at (1.5 * 0 + 0.75, 0) {$V_0$};
+    \node (V0) at (#1 * 0 + 0.5 * #1, 0) {$V_0$};
     \foreach \x in {1,...,##1} {
-      \node (C\x) at (1.5 * \x       , 0) {$C_{\x}$};
-      \node (V\x) at (1.5 * \x + 0.75, 0) {$V_{\x}$};
+      \node (C\x) at (#1 * \x           , 0) {$C_{\x}$};
+      \node (V\x) at (#1 * \x + 0.5 * #1, 0) {$V_{\x}$};
     }
     \stepcounter{consonant}
   }
@@ -161,7 +161,7 @@
     \relation{Lic}{\secondpos}{\firstpos}
   }
   \newcommand\wordstart{
-    \node (word-start) at (1.5*\theconsonant + 0.75/2, -1) {\#};
+    \node (word-start) at (#1*\theconsonant + 0.5*#1, -1) {\#};
     \draw (C\theconsonant) -- (word-start) -- (V\thevowel);
     \stepcounter{consonant}
     \stepcounter{vowel}
