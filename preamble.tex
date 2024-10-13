@@ -102,6 +102,9 @@
 \newcounter{vowel}
 \newcounter{consonant}
 
+% \usetikzlibrary{backgrounds}
+% \pgfsetlayers{background,main}
+
 \newenvironment{structure}{
   \setcounter{vowel}{0}
   \setcounter{consonant}{0}
@@ -173,6 +176,7 @@
   \par\noindent%
   \begin{tikzpicture}[
     floating/.style={draw opacity=0},
+    % framed,
     baseline=(V0.base)
   ]
 }{
