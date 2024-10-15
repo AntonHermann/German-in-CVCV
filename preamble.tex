@@ -111,15 +111,17 @@
   %
   \newcommand\drawCV[1]{% param: count
     \foreach \x in {0,1,...,##1} {
-        \node (C\x) at (#1 * \x           , 0) {$C_{\x}$};
-        \node (V\x) at (#1 * \x + 0.5 * #1, 0) {$V_{\x}$};
+        \numdef\xDisp{\x + 1}
+        \node (C\x) at (#1 * \x           , 0) {$C_{\xDisp}$};
+        \node (V\x) at (#1 * \x + 0.5 * #1, 0) {$V_{\xDisp}$};
     }
   }
   \newcommand\drawVCV[1]{% param: count
-    \node (V0) at (#1 * 0 + 0.5 * #1, 0) {$V_0$};
+    \node (V0) at (#1 * 0 + 0.5 * #1, 0) {$V_1$};
     \foreach \x in {1,...,##1} {
-      \node (C\x) at (#1 * \x           , 0) {$C_{\x}$};
-      \node (V\x) at (#1 * \x + 0.5 * #1, 0) {$V_{\x}$};
+      \numdef\xDisp{\x + 1}
+      \node (C\x) at (#1 * \x           , 0) {$C_{\xDisp}$};
+      \node (V\x) at (#1 * \x + 0.5 * #1, 0) {$V_{\xDisp}$};
     }
     \stepcounter{consonant}
   }
