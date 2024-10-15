@@ -92,15 +92,106 @@ Either mention this or show only 1 example for empty Nuclei}
   \label{fig:3 kinds of vowels}
 \end{figure}
 
-{\color{purple}DRAFT
+The Czech examples in \Cref{fig:3 kinds of vowels} show that it is possible
+to have a single vowel both as full (\ti{/lEs/}) and alternating (\ti{/pEs/})
+vowel in the same language.
 
-\Cref{fig:3 kinds of vowels} shows: in 1 language a vowel can exist
-as a full, associated vowel (\ti{/lEs/}) and
-as an alternating, floating vowel (\ti{/pEs/}).
+This maps precisely to \emph{Schwa constans} and \emph{Schwa mobile}
+\cite{issatschenko1974}.
 
-This maps precisely to \citeauthor{issatschenko1974}s
-\emph{Schwa constans} and \emph{Schwa mobile}.
+\TODO{von der Form her, ob inhaltlich kongruent gilt es zu prüfen}
 
-\TODO{Issatschenko lesen}
+Based on this insight, we can now analyze whether \CVCV is able to capture
+the distribution of Schwa (mobile) in german.
 
-}
+\citeauthor{issatschenko1974} describes 4 vocalisation rules where
+a Schwa mobile turns into a Schwa constans and therefore receives
+phonetic manifestation:
+
+\begin{enumerate}
+  \item \deriv
+    {\ti{/\textsce/}} % E (schwa mobile)
+    {\ti{/@/}}        % ə (schwa constans / realization)
+    {$\_\_\begin{Bmatrix}L \\ N\end{Bmatrix}(C) \;\big]_\omega$}
+  \item same as 1. but with composition boundary instead of word boundary
+  \item \deriv
+    {\ti{/\textsce/}} % E (schwa mobile)
+    {\ti{/@/}}        % ə (schwa constans / realization)
+    {$\_\_\begin{Bmatrix}L \\ N\end{Bmatrix}(C) + CX$}
+  \item \deriv
+    {\ti{/\textsce/}} % E (schwa mobile)
+    {\ti{/@/}}        % ə (schwa constans / realization)
+    {$\_\_\begin{Bmatrix}L \\ N\end{Bmatrix}(C) + \text{\textsce}\ C(C)$}
+\end{enumerate}
+
+If we translate the context of these rules into the
+vocabulary of \CVCV, we can examine whether its prediction
+\tr{of/on} the schwa-vocalisation matches the patterns
+described by \citeauthor{issatschenko1974}.
+
+\Cref{fig:issatschenko voc rule 1}
+depicts the situation of rule~1.
+While in \cref{fig:issatschenko voc rule 1:L C end}
+the liquid or nasal and the consonant enclose an
+internal empty Nucleus without lateral actorship,
+the vowel following the Schwa in
+\cref{fig:issatschenko voc rule 1:L end}
+is a \gls{FEN}.
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{.49\textwidth}
+    \centering
+    \begin{structure}
+      \drawVCV{2}
+      \V[floating]{\textschwa}
+      \C{L/N}
+      \emptyV
+      \C{C}
+      \fen
+      \Gov{V2}{V1}
+      \NoGov{V1}{V0}
+    \end{structure}
+    \caption{with extra C}
+    \label{fig:issatschenko voc rule 1:L C end}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{.49\textwidth}
+    \centering
+    \begin{structure}
+      \drawVCV{1}
+      \V[floating]{\textschwa}
+      \C{L/N}
+      \fen
+      \NoGov{V1}{V0}
+    \end{structure}
+    \caption{without extra C}
+    \label{fig:issatschenko voc rule 1:L end}
+  \end{subfigure}
+  \caption{Issatschenko vocalisation rule 1 in \CVCV}
+  \label{fig:issatschenko voc rule 1}
+\end{figure}
+
+\Glspl{FEN} in German principally have the ability
+to govern, however the government relationships of
+\glspl{FEN} in general \tr{cannot/can not} target
+non-empty Nuclei:
+\marknote{Move quote to Intro:Gov+Lic?}
+\q[p.~643]{scheer2004}{Final empty Nuclei can only
+govern Nuclei that are bare of any underlying melody
+(floating or attached)} (see \cref{subsec:intro:gov lic}).
+
+Albeit for different reasons, in both variants
+the lack of government of $V_1$ results in the
+attachment of the floating melody and the Schwa
+surfaces; the prediction of \CVCV is consistend with
+\citeauthor{issatschenko1974}s rule.
+
+\TODO{Für rule 2., 3., 4.: ist domain final = FEN?}
+
+\TODO{subsubsection before issatschenko part?}
+
+\TODO{analyze Tilgungsregel}
+
+\TODO{other restrictions/predictions in issatschenko?}
+  Adjectives, Verbs?
