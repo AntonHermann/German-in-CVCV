@@ -178,7 +178,7 @@
     \edef\pos{V\thevowel}
     \ifstrequal{##1}{domain}{
       \draw[dashed] (\pos.north) ++(.25,0.1) -- ++(0,-1.6);
-      \edef\shiftRight{0.5}
+      \edef\shiftRight{0}
     }{\edef\shiftRight{0.8}}
     \draw[<-] (\pos.north) -- ++(0,0.2) -- node[above]{Gvt} ++(\shiftRight,0);
   }
