@@ -401,6 +401,10 @@ and the prediction would match reality:
   \Gov{V2}{V1}
 \end{structure}
 
+
+\subsubsection{Alternation sites and Infrasegmental Government}
+Another interesting aspect of \CVCV, the interaction between alternation
+sites and \gls{IG}, can be observed in \ex{Handlung}:
 \begin{structure}
   \drawCV{5}
   \C{h}
@@ -418,7 +422,48 @@ and the prediction would match reality:
   \Gov{V3}{V2}
   \NoLic{V5}{C5}
 \end{structure}
-\TODO{What is going on with $V_2$??}
+At first, it seems like the empty Nucleus between \ti{[n]} and \ti{[d]}
+isn't governed, making the word either \tr{ungrammatical} or forcing
+the following Schwa to be vocalised in order to provide Government.
+There is another possibility however: \acrlong{IG}.
+
+\medskip\noindent\TODO{actually, according to \cref{subsubsec:IG:Lexicon},
+IG \emph{is} stored in the lexicon -\_- }\par\medskip
+
+Before, the Schwa in $V_3$ didn't have
+enough lateral actorship to license a domain of \gls{IG},
+but with the \ti{[U]} of the suffix, this relation is
+now possible. Thus the alternation site isn't governed
+by Proper Government but by \gls{IG} and is therefore
+able to dispense Government itself.
+
+Because Government and Licensing aren't stored in the lexicon
+but are dynamic computations, this change from
+Proper Government to \gls{IG} should still abide the
+law of structure preservation. Note however that
+the configuration of an alternation site being governed
+by \gls{IG} wasn't mentioned in the book at all,
+however to my knowledge there is nothing in the book indicating
+that this is not possible.
+\begin{structure}
+  \drawCV{5}
+  \C{h}
+  \V{a}
+  \C{n}
+  \emptyV
+  \C{d}
+  \emptyV
+  \C{l}
+  \V{\ti{U}}
+  \Ng
+  \fen
+
+  \Gov{V2}{V1}
+  \IG{C3}{C2}
+  \Lic{V3}{C3}
+  \NoLic{V5}{C5}
+\end{structure}
+
 
 \bigskip
 \TODO{Widerspruch: \normalfont
