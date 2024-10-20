@@ -38,14 +38,14 @@
   \renewcommand\tableofcontents{\section*{Contents \draftnote}}
   % biblatex
   \newcommand\addbibresource[1]{}
-  \newcommand\parencite[2][]{(#1 #2)}
+  \newcommand{\parencite}[2][]{(#1 #2)}
   \newcommand\printbibliography{\section*{Bibliography \draftnote}}
   % glossaries
   \newcommand\gls[1]{#1}
   \newcommand\glspl[1]{#1}
   % cleverref
-  \NewDocumentCommand\cref{v}{#1}
-  \NewDocumentCommand\Cref{v}{#1}
+  \NewDocumentCommand{\cref}{v}{#1}
+  \NewDocumentCommand{\Cref}{v}{#1}
 }{
   \usepackage[
     % natbib=true,
