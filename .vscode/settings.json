@@ -1,5 +1,7 @@
 {
     "editor.indentSize": "tabSize",
     "editor.tabSize": 2,
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
+    // use ctrl+alt+b instead
+    "latex-workshop.latex.autoBuild.run": "never"
 }
