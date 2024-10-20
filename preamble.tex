@@ -90,6 +90,18 @@
 % Schwa constans
 \newcommand\schwaCons{\text\textschwa\xspace}
 
+
+% =============================================================
+% Conditional compilation
+% =============================================================
+\ifdef{\included}{\ErrorIncludedWasAlreadyDefined}{}
+\newcommand\includethese[1]{\forcsvlist{\listadd\included}{#1}}
+\newcommand\includeconditionally[2]{\ifinlist{#1}{\included}{#2}{}}
+
+
+% =============================================================
+% Definitions
+% =============================================================
 \usepackage{amsthm}
 % \theoremstyle{definition}
 \newtheorem*{definition}{Definition}
