@@ -115,22 +115,22 @@
 % \pgfsetlayers{background,main}
 
 \newenvironment{structure}[1][1.5]{
-  \setcounter{vowel}{0}
-  \setcounter{consonant}{0}
+  \setcounter{vowel}{1}
+  \setcounter{consonant}{1}
   %
   \newcommand\drawCV[1]{% param: count
-    \foreach \x in {0,1,...,##1} {
-        \numdef\xDisp{\x + 1}
-        \node (C\x) at (#1 * \x           , 0) {$C_{\xDisp}$};
-        \node (V\x) at (#1 * \x + 0.5 * #1, 0) {$V_{\xDisp}$};
+  \numdef\xEnd{##1 + 1}
+    \foreach \x in {1,...,\xEnd} {
+        \node (C\x) at (#1 * \x           , 0) {$C_{\x}$};
+        \node (V\x) at (#1 * \x + 0.5 * #1, 0) {$V_{\x}$};
     }
   }
   \newcommand\drawVCV[1]{% param: count
-    \node (V0) at (#1 * 0 + 0.5 * #1, 0) {$V_1$};
-    \foreach \x in {1,...,##1} {
-      \numdef\xDisp{\x + 1}
-      \node (C\x) at (#1 * \x           , 0) {$C_{\xDisp}$};
-      \node (V\x) at (#1 * \x + 0.5 * #1, 0) {$V_{\xDisp}$};
+  \node (V1) at (#1 * 1 + 0.5 * #1, 0) {$V_1$};
+  \numdef\xEnd{##1 + 1}
+    \foreach \x in {2,...,\xEnd} {
+      \node (C\x) at (#1 * \x           , 0) {$C_{\x}$};
+      \node (V\x) at (#1 * \x + 0.5 * #1, 0) {$V_{\x}$};
     }
     \stepcounter{consonant}
   }
@@ -192,7 +192,7 @@
   \begin{tikzpicture}[
     floating/.style={draw opacity=0},
     % framed,
-    baseline=(V0.base)
+    baseline=(V1.base)
   ]
 }{
   \end{tikzpicture}
