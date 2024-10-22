@@ -163,13 +163,13 @@
   %
   \newcommand\V[2][]{% params: [style] vowel
     \edef\pos{V\thevowel}
-    \node[##1] (p\pos) at (\pos |-, -1) {##2};
+    \node[anchor=base,##1] (p\pos) at (\pos |-, -1) {##2};
     \draw[##1] (\pos) -- (p\pos);
     \stepcounter{vowel}
   }
   \newcommand\C[2][]{% params: [style] consonant
     \edef\pos{C\theconsonant}
-    \node[##1] (p\pos) at (\pos |-, -1) {##2};
+    \node[anchor=base,##1] (p\pos) at (\pos |-, -1) {##2};
     \draw[##1] (\pos) -- (p\pos);
     \stepcounter{consonant}
   }
