@@ -203,6 +203,14 @@
   \newcommand\IG[2]{
     \draw[->,double] (p##1) -- node[below]{IG} (p##2);
   }
+  \newcommand\Ng{
+    \edef\firstpos{C\theconsonant}
+    \C{N}
+    \emptyV
+    \edef\secondpos{C\theconsonant}
+    \C{g}
+    \draw (p\secondpos.north) -- (\firstpos.south);
+  }
   \par\noindent%
   \begin{tikzpicture}[
     floating/.style={draw opacity=0},
