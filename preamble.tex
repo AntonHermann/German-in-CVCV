@@ -187,10 +187,10 @@
     \relation{Lic}{\secondpos}{\firstpos}
   }
   \newcommand\wordstart{
-    \node (word-start) at (#1*\theconsonant + 0.25*#1, -1) {\#};
-    \draw (C\theconsonant) -- (word-start) -- (V\thevowel);
-    \stepcounter{consonant}
-    \stepcounter{vowel}
+    \node (C0) at (0       , 0) {$C_0$};
+    \node (V0) at (0.5 * #1, 0) {$V_0$};
+    \node[anchor=base] (word-start) at (0.25 * #1, -1) {\#};
+    \draw (C0) -- (word-start) -- (V0);
   }
   \newcommand\fen[1][]{
     \edef\pos{V\thevowel}
