@@ -187,7 +187,7 @@
     \relation{Lic}{\secondpos}{\firstpos}
   }
   \newcommand\wordstart{
-    \node (word-start) at (#1*\theconsonant + 0.5*#1, -1) {\#};
+    \node (word-start) at (#1*\theconsonant + 0.25*#1, -1) {\#};
     \draw (C\theconsonant) -- (word-start) -- (V\thevowel);
     \stepcounter{consonant}
     \stepcounter{vowel}
