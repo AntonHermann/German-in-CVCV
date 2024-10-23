@@ -251,3 +251,10 @@
 \newenvironment{deleted}{\begingroup\color{gray}}{\endgroup}
 % annotation (structure, ..)
 \newcommand\annot[1]{\textcolor{purple}{#1\marginmarker}\xspace}
+
+% helper commands to test alignment
+\newcommand\helpRuleHoriz[1][blue]{\tikz[remember picture,overlay,very thin,draw=#1] \draw
+  (current page.east |-, 0)   -- (current page.west |-, 0)
+  (current page.east |-, 1ex) -- (current page.west |-, 1ex) ;}
+\newcommand\helpRuleVert[1][blue]{\tikz[remember picture,overlay,very thin,draw=#1] \draw
+  (0, |- current page.north) -- (0, |- current page.south) ;}
