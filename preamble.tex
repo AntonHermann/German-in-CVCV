@@ -129,7 +129,7 @@
 % \usetikzlibrary{backgrounds}
 % \pgfsetlayers{background,main}
 
-\newenvironment{structure}[1][1.5]{
+\newenvironment{structure}[2][1.5]{ % args: [node_dist] subtext
   \setcounter{vowel}{1}
   \setcounter{consonant}{1}
   %
@@ -221,7 +221,10 @@
   \begin{tikzpicture}[
     floating/.style={draw opacity=0},
     % framed,
-    baseline=(V1.base)
+    baseline=(V1.base),
+    execute at end picture={\ifblank{#2}{}{
+      \node[below=.5ex, align=flush center] at (current bounding box.south) {#2};
+    }},
   ]
 }{
   \end{tikzpicture}
