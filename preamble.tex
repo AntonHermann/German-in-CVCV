@@ -173,8 +173,11 @@
     \draw[##1] (\pos) -- (p\pos);
     \stepcounter{consonant}
   }
-  \newcommand\emptyV{
+  \newcommand\emptyV[1][]{ % optionally pass 'gov' or 'nogov'
+    \edef\prevpos{V\thevowel}
     \stepcounter{vowel}
+    \ifstrequal{##1}{gov}{\Gov{V\thevowel}{\prevpos}}{}
+    \ifstrequal{##1}{nogov}{\NoGov{V\thevowel}{\prevpos}}{}
   }
   %
   \newcommand\longV[1]{% param: vowel
@@ -193,7 +196,7 @@
     \draw (C0) -- (word-start) -- (V0);
     \Gov{V1}{V0}
   }
-  \newcommand\fen[1][]{
+  \newcommand\fen[1][]{ % optionally pass 'domain' for domain-final (but not word-final) FEN
     \edef\pos{V\thevowel}
     \ifstrequal{##1}{domain}{
       % \draw[dashed] (\pos.north) ++(.25,0.1) -- ++(0,-1.6);
@@ -204,13 +207,15 @@
   \newcommand\IG[2]{
     \draw[->,double] (p##1) -- node[below]{IG} (p##2);
   }
-  \newcommand\Ng{
+  \newcommand\Ng[1][]{ % optionally pass 'lic' or 'nolic'
     \edef\firstpos{C\theconsonant}
     \C{N}
     \emptyV
     \edef\secondpos{C\theconsonant}
     \C{g}
     \draw (p\secondpos.north) -- (\firstpos.south);
+    \ifstrequal{##1}{lic}{\Lic{V\thevowel}{\secondpos}}{}
+    \ifstrequal{##1}{nolic}{\NoLic{V\thevowel}{\secondpos}}{}
   }
   \par\noindent%
   \begin{tikzpicture}[
