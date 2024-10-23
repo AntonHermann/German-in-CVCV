@@ -191,6 +191,7 @@
     \node (V0) at (0.5 * #1, 0) {$V_0$};
     \node[anchor=base] (word-start) at (0.25 * #1, -1) {\#};
     \draw (C0) -- (word-start) -- (V0);
+    \Gov{V1}{V0}
   }
   \newcommand\fen[1][]{
     \edef\pos{V\thevowel}
