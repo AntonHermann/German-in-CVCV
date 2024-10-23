@@ -66,8 +66,68 @@ of \textipa{[N]} vs. \textipa{[Ng]} as an underlying \textipa{/Ng/}
 where the \textipa{/g/} only surfaces if it is licensed.
 In this analysis, three contexts are examined:
 
-\includegraphics[width=.7\textwidth]{figures/ng-three-contexts.png}
-(p.~580)
+\begin{figure}[h]
+  % \centering
+  \captionsetup[subfigure]{
+    labelformat=simple,        % no braces around label
+    labelsep=period,           % period after label
+    justification=raggedright, % align left
+    singlelinecheck=false,     % disable automatic centering of single-line captions
+    position=top,              % subcaptions are above their content
+  }
+  \begin{subfigure}[T]{.5\textwidth}
+    \caption{\ti{[N]} in closed syllables}
+    \label{fig:ng:closed syllable}
+    \centering
+    \begin{structure}
+      \drawCV{5}
+      \C{p}
+      \V{\ti{I}}
+      \Ng[nolic]
+      \emptyV[gov]
+      \C{p}
+      \V{\ti{O}}
+      \Ng[nolic]
+      \fen
+    \end{structure}
+    Pi\textbf{ng}po\textbf{ng} \ti{[pINpON]}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[T]{.45\textwidth}
+    \caption{\ti{[N]} before schwa}
+    \label{fig:ng:before schwa}
+    \parbox{12em}{
+      \centering
+      \begin{structure}
+        \drawCV{2}
+        \C{\ti{P}}
+        \V{\ti{I}}
+        \Ng[nolic]
+        \V{\textschwa}
+      \end{structure}
+      I\textbf{ng}e \ti{[PIN@]}
+    }
+  \end{subfigure}
+
+  \vspace{1.5em}
+  \begin{subfigure}[T]{\textwidth}
+    \caption{\ti{[Ng]} before full vowels (i.e. that are different from schwa)}
+    \label{fig:ng:before full vowel}
+    \parbox{.25\textwidth}{
+      \centering
+      \begin{structure}
+        \drawCV{2}
+        \C{\ti{P}}
+        \V{\ti{I}}
+        \Ng[lic]
+        \V{o}
+      \end{structure}
+      I\textbf{ng}o \ti{[PINgo:]}
+    }
+  \end{subfigure}
+
+  \captionsource{German: schwa does not license}{\cite[p.~580]{scheer2004}}
+\end{figure}
 
 Since \textipa{/g/} doesn't surface before schwa it is concluded
 that schwa doesn't license in German.%
