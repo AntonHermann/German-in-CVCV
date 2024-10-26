@@ -136,16 +136,16 @@
   \newcommand\drawCV[1]{% param: count
   \numdef\xEnd{##1 + 1}
     \foreach \x in {1,...,\xEnd} {
-        \node (C\x) at (#1 * \x           , 0) {$C_{\x}$};
-        \node (V\x) at (#1 * \x + 0.5 * #1, 0) {$V_{\x}$};
+      \node[transparent] (C\x) at (#1 * \x           , 0) {$C_{\x}$};
+      \node[transparent] (V\x) at (#1 * \x + 0.5 * #1, 0) {$V_{\x}$};
     }
   }
   \newcommand\drawVCV[1]{% param: count
-  \node (V1) at (#1 * 1 + 0.5 * #1, 0) {$V_1$};
+  \node[transparent] (V1) at (#1 * 1 + 0.5 * #1, 0) {$V_1$};
   \numdef\xEnd{##1 + 1}
     \foreach \x in {2,...,\xEnd} {
-      \node (C\x) at (#1 * \x           , 0) {$C_{\x}$};
-      \node (V\x) at (#1 * \x + 0.5 * #1, 0) {$V_{\x}$};
+      \node[transparent] (C\x) at (#1 * \x           , 0) {$C_{\x}$};
+      \node[transparent] (V\x) at (#1 * \x + 0.5 * #1, 0) {$V_{\x}$};
     }
     \stepcounter{consonant}
   }
@@ -161,27 +161,49 @@
   \newcommand\Lic[2]{\relation{Lic}{##1}{##2}}
   \newcommand\NoLic[2]{\norelation{Lic}{##1}{##2}}
   %
+  \newcommand\hl[1][]{\edef\HlNext{##1}}
+  %
+  \newcommand\StructureHandleSkeletonNode[2]{ % internal, args: {C|V} style
+    \ifstrequal{##1}{V}{\let\currcounter=\thevowel}{\let\currcounter=\theconsonant}
+    \edef\pos{##1\currcounter}
+    \ifdef{\HlNext}{
+      \node at (\pos) {\HlNext};
+      \undef{\HlNext}
+    }{
+      \node at (\pos) {$##1_{\currcounter}$};
+    }
+  }
+  %
   \newcommand\V[2][]{% params: [style] vowel
     \edef\pos{V\thevowel}
     \node[anchor=base,##1] (p\pos) at (\pos |-, -1) {##2};
     \draw[##1] (\pos) -- (p\pos);
+    \StructureHandleSkeletonNode{V}{##1}
     \stepcounter{vowel}
   }
   \newcommand\C[2][]{% params: [style] consonant
     \edef\pos{C\theconsonant}
     \node[anchor=base,##1] (p\pos) at (\pos |-, -1) {##2};
     \draw[##1] (\pos) -- (p\pos);
+    \StructureHandleSkeletonNode{C}{##1}
     \stepcounter{consonant}
   }
   \newcommand\emptyV[1][]{ % optionally pass 'gov' or 'nogov'
     \edef\prevpos{V\thevowel}
+    \StructureHandleSkeletonNode{V}{##1}
     \stepcounter{vowel}
     \ifstrequal{##1}{gov}{\Gov{V\thevowel}{\prevpos}}{}
     \ifstrequal{##1}{nogov}{\NoGov{V\thevowel}{\prevpos}}{}
   }
+  \newcommand\emptyC{
+    \StructureHandleSkeletonNode{C}{}
+    \stepcounter{consonant}
+  }
   %
   \newcommand\longV[1]{% param: vowel
     \edef\firstpos{V\thevowel}
+    \StructureHandleSkeletonNode{V}{}
+    \StructureHandleSkeletonNode{C}{}
     \stepcounter{vowel}
     \stepcounter{consonant}
     \edef\secondpos{V\thevowel}
@@ -200,8 +222,11 @@
     \edef\pos{V\thevowel}
     \ifstrequal{##1}{domain}{
       % \draw[dashed] (\pos.north) ++(.25,0.1) -- ++(0,-1.6);
-      \edef\shiftRight{0}
-    }{\edef\shiftRight{0.8}}
+      \def\shiftRight{0}
+    }{
+      \StructureHandleSkeletonNode{V}{}
+      \def\shiftRight{0.8}
+    }
     \draw[<-] (\pos.north) -- ++(0,0.2) -- node[above]{Gvt} ++(\shiftRight,0);
   }
   \newcommand\IG[2]{
