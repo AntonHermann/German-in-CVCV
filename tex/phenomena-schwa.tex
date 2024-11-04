@@ -407,7 +407,7 @@ and the prediction would match reality:
 \subsubsection{Alternation sites and Infrasegmental Government}
 Another interesting aspect of \CVCV, the interaction between alternation
 sites and \gls{IG}, can be observed in \ex{Handlung}:
-\begin{structure}{}
+\begin{structure}{\ex{Handlung} \ti{[handlUN]}}
   \drawCV{5}
   \C{h}
   \V{a}
@@ -426,9 +426,6 @@ isn't governed, making the word either \tr{ungrammatical} or forcing
 the following Schwa to be vocalised in order to provide Government.
 There is another possibility however: \acrlong{IG}.
 
-\medskip\noindent\TODO{actually, according to \cref{subsubsec:IG:Lexicon},
-IG \emph{is} stored in the lexicon -\_- }\par\medskip
-
 Before, the Schwa in $V_3$ didn't have
 enough lateral actorship to license a domain of \gls{IG},
 but with the \ti{[U]} of the suffix, this relation is
@@ -436,15 +433,32 @@ now possible. Thus the alternation site isn't governed
 by Proper Government but by \gls{IG} and is therefore
 able to dispense Government itself.
 
-Because Government and Licensing aren't stored in the lexicon
-but are dynamic computations, this change from
-Proper Government to \gls{IG} should still abide the
-law of structure preservation. Note however that
-the configuration of an alternation site being governed
-by \gls{IG} wasn't mentioned in the book at all,
-however to my knowledge there is nothing in the book indicating
-that this is not possible.
-\begin{structure}{}
+While Government and Licensing are dynamic computations and not stored in the lexicon,
+that does not apply to \gls{IG}
+(see~\cref{subsubsec:IG:Lexicon}).
+As a consequence, two assumptions have to be made for this
+analysis:
+\begin{enumerate}
+\item The lexicon stores not static instances of \gls{IG} that are
+  always active but possible \gls{IG} domains. Whether \gls{IG}
+  is actually instantiated is determined by the licensing  support
+  it receives: if it is licensed by a following full vowel%
+  \footnote{Or by a \gls{FEN} in languages where those license.}
+  an \gls{IG} relation forms, if it fails to be licensed, \emph{some}
+  other process must ensure the \gls{ECP} of the enclosed Nucleus
+  is not violated.
+\item One of these processes that ensure well-formedness in these
+  non-licensed cases may be vowel-zero-alternation:
+  If the enclosed Nucleus isn't actually empty but contains a
+  floating melody (and no governing support is available either),
+  this vowel may surface to prevent an ungoverned empty Nucleus\footnotemark.
+  \footnotetext{Keep in mind that while \gls{IG} needs to be licensed,
+  it itself establishes a governing relationship. The notion of
+  \emph{being licensed to be empty} known from \SGP is discarded
+  by \parencite{scheer2004}.}
+\end{enumerate}
+
+\begin{structure}{\ex{Handlung} \ti{[handlUN]}}
   \drawCV{5}
   \C{h}
   \V{a}
@@ -458,6 +472,24 @@ that this is not possible.
   \fen
   \IG{C4}{C3}
   \Lic{V4}{C4}
+\end{structure}
+
+\bigskip\TODO{p.76: wenn alt. site + IG, alt. site von full vowel after IG gegoverned}
+\begin{structure}{\ex{Handlung} \ti{[handlUN]}}
+  \drawCV{5}
+  \C{h}
+  \V{a}
+  \C{n}
+  \emptyV
+  \C{d}
+  \emptyV
+  \C{l}
+  \V{\ti{U}}
+  \Ng[nolic]
+  \fen
+  \IG{C4}{C3}
+  \Lic{V4}{C4}
+  \Gov{V4}{V2}
 \end{structure}
 
 
