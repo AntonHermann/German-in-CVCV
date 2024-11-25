@@ -8,11 +8,46 @@ of different phonological objects in the language of
 \TODO{Reihenfolge}
 
 \subsubsection{Long vowels}
+\begin{structure}{}
+  \drawCV{2}
+  \C{C}
+  \longV{V}
+\end{structure}
+\TODO{complement needs to be licensed}
+
+
 \subsubsection{Diphtongs}
+\begin{structure}{\emph{some} Relation}
+  \drawCV{2}
+  \C{C}
+  \V{V\textsubscript{1}}
+  \emptyC
+  \V{V\textsubscript{2}}
+  \draw[dashed] (pV2) -- (V1);
+\end{structure}
+
+\begin{structure}{association to 2 Nuclei}
+  \drawCV{2}
+  \C{C}
+  \V{V\textsubscript{1}}
+  \emptyC
+  \V{V\textsubscript{2}}
+  \draw (pV2) -- (V1);
+\end{structure}
+
+
 \subsubsection{Coda}\label{intro:obj:coda}
 \subsubsection{(Coda-Mirror) <- unten verwendet? Sonst nur brief mention}
 \subsubsection{Margin contexts:}
 \subsubsection{Word-start \ctx{\#\_}}\label{intro:obj:word start}
+\begin{structure}{}
+  \drawCV{1}
+  \wordstart
+  \C{C}
+  \V{V}
+\end{structure}
+
+
 \subsubsection{Word-end \ctx{\_\#}}\label{intro:obj:word end}
 \subsubsection{Syllabic consonants}
 \subsubsection{Branching Onsets (Infrasegmental Government)}
