@@ -16,6 +16,7 @@
   % abstract,
   toc,
   intro,
+  background,
   parameters,
   german,
   phenomena,
@@ -41,13 +42,17 @@
 \includeconditionally{intro}{
   \section{Introduction}
   \import{tex}{intro}
-  \import{tex}{intro-gov-lic-in-gp}
-  \import{tex}{intro-empty-nuclei}
-  \import{tex}{intro-gov-lic}
-  \import{tex}{intro-phonological-objects-in-cvcv}
-  \import{tex}{intro-domains}
-  \import{tex}{intro-infrasegmental-gov}
-  \import{tex}{intro-coda}
+}
+
+\includeconditionally{background}{
+  \section{Background}
+  \import{tex}{bg-gov-lic-in-gp}
+  \import{tex}{bg-empty-nuclei}
+  \import{tex}{bg-gov-lic}
+  \import{tex}{bg-phonological-objects-in-cvcv}
+  \import{tex}{bg-domains}
+  \import{tex}{bg-infrasegmental-gov}
+  \import{tex}{bg-coda}
 }
 
 % \section{List of parameters  (book)}
