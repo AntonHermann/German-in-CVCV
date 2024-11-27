@@ -38,24 +38,45 @@ of different phonological objects in the language of
 
 \subsubsection{Coda}\label{intro:obj:coda}
 Coda consonants are defined as Onsets that occur before
-a governed empty Nucleus.\cite[p.~192]{scheer2004}
-\begin{structure}{internal Coda}
-  \drawCV{2}
-  \V{V}
-  \C{C}
-  \C{\bfseries C}
-  \emptyV[gov]
-  \C{C}
-  \V{V}
-\end{structure}
+a governed empty Nucleus.\parencite[p.~192]{scheer2004}
+This Nucleus can either be governed by a following full
+vowel, \wordunsure{IG} or because it is the final
+vowel in the domain.
+\Cref{fig:intro:obj:coda} shows the two different kinds
+of Codas.
+\marknote{2 kinds, but with IG 3 options were mentioned before?!}
 
-\begin{structure}{final Coda}
-  \drawCV{1}
-  \V{V}
-  \C{C}
-  \C{\bfseries C}
-  \fen
-\end{structure}
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{.49\textwidth}
+    \centering
+    \begin{structure}{}
+      \drawCV{2}
+      \V{V}
+      \C{C}
+      \C{\bfseries C}
+      \emptyV[gov]
+      \C{C}
+      \V{V}
+    \end{structure}
+    \caption{internal Coda}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{.49\textwidth}
+    \centering
+    \begin{structure}{}
+      \drawCV{1}
+      \V{V}
+      \C{C}
+      \C{\bfseries C}
+      \fen
+    \end{structure}
+    \caption{final Coda}
+  \end{subfigure}
+  \caption{Codas in \CVCV}
+  \label{fig:intro:obj:coda}
+\end{figure}
+\TODO{hier schon positional strength of Coda/Coda-Mirror einführen?}
 
 
 \subsubsection{(Coda-Mirror) <- unten verwendet? Sonst nur brief mention}
@@ -64,6 +85,7 @@ a governed empty Nucleus.\cite[p.~192]{scheer2004}
 \begin{structure}{}
   \drawCV{0}
   \wordstart
+
   \C{C}
   \V{V}
 \end{structure}
