@@ -103,6 +103,7 @@
 \ifdef{\included}{\ErrorIncludedWasAlreadyDefined}{}
 \newcommand\includethese[1]{\forcsvlist{\listadd\included}{#1}}
 \newcommand\includeconditionally[2]{\ifinlist{#1}{\included}{#2}{}}
+\renewcommand\includeonly[1]{\xdef\included{}\listxadd\included{#1}}
 
 
 % =============================================================
