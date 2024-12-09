@@ -31,9 +31,11 @@ formulieren, bspw. unten bei Nennung von Höhle \& Vater}
 
 
 Explore mapping other theories to the \CVCV model.
-Rule~18 in \cite[p.~176]{hohleVater1978} tries to capture a complex context where
-syllabic consonants appear, along with a discussion of situations where this
-rule doesn't suffice\marknote{überprüfen}.
+Rule~18 in \cite[p.~176]{hohleVater1978} (\cref{fig:HöhleVater_Rule18})
+tries to capture a complex context where syllabic consonants appear,
+along with a discussion of its limitations,
+where it overgenerates and how different \tr{Wortarten} induce different
+patterns in the \tr{phonological} realisation.
 
 \newcommand\feat[1]{%
   \ensuremath{\left[%
@@ -57,34 +59,39 @@ rule doesn't suffice\marknote{überprüfen}.
 % \settowidth{\mylength}{+}
 % \showthe\mylength
 
-\begin{enumerate}[label=(\roman*)]
-\item  \(\displaystyle
-  \feat{--\,obstr} \tikzmarknode{arrow}{\rightarrow} \feat{+silb} /\,\#\,(
-    \,\text{X}\;
-    \phongroup{
-      \feat{\tikzmarknode{a}{+}\,obstr}\hspace*{8.5pt}\\
-      \feat{\tikzmarknode{b}{--}\,obstr\\+\,nasal}\hspace*{8.5pt}\\[8pt]
+\begin{figure}
+  \begin{enumerate}[label=(\roman*)]
+  \item  \(\displaystyle
+    \feat{--\,obstr} \tikzmarknode{arrow}{\rightarrow} \feat{+silb} /\,\#\,(
+      \,\text{X}\;
       \phongroup{
-        \feat{--\,obstr\\\tikzmarknode{c}{--}\,nasal}\\
-        \feat{\tikzmarknode{d}{--}\,kons}
-      }+
+        \feat{\tikzmarknode{a}{+}\,obstr}\hspace*{8.5pt}\\
+        \feat{\tikzmarknode{b}{--}\,obstr\\+\,nasal}\hspace*{8.5pt}\\[8pt]
+        \phongroup{
+          \feat{--\,obstr\\\tikzmarknode{c}{--}\,nasal}\\
+          \feat{\tikzmarknode{d}{--}\,kons}
+        }+
+      }
+    )
+    \,\phonctx\,
+    (\feat{--\,kons}\,\text{Y})
+    \ \#
+    \tikz[overlay,remember picture]{
+      \foreach \x in {a,b,c,d}{
+        \draw (\x.west -| arrow) node {(\x)};
+      }
     }
-  )
-  \,\phonctx\,
-  (\feat{--\,kons}\,\text{Y})
-  \ \#
-  \tikz[overlay,remember picture]{
-    \foreach \x in {a,b,c,d}{
-      \draw (\x.west -| arrow) node {(\x)};
-    }
-  }
-\)
+  \)
 
-\item Bedingung:
-\begin{tabular}[t]{ll}
-  (a)      & obligatorisch \\
-  (b), (c) & fakultativ für Nasale,\\
-           & obligatorisch für Liquide \\
-  (d)      & fakultativ
-\end{tabular}
-\end{enumerate}
+  \item Bedingung:
+    \begin{tabular}[t]{ll}
+      (a)      & obligatorisch \\
+      (b), (c) & fakultativ für Nasale,\\
+              & obligatorisch für Liquide \\
+      (d)      & fakultativ
+    \end{tabular}
+  \end{enumerate}
+  \caption{Rule~18 of \cite{hohleVater1978} tries to capture the contexts
+  where syllabic sonorants occur.}
+  \label{fig:HöhleVater_Rule18}
+\end{figure}
