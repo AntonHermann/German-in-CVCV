@@ -57,7 +57,8 @@ rule doesn't suffice\marknote{überprüfen}.
 % \settowidth{\mylength}{+}
 % \showthe\mylength
 
-\[
+\begin{enumerate}[label=(\roman*)]
+\item  \(\displaystyle
   \feat{--\,obstr} \tikzmarknode{arrow}{\rightarrow} \feat{+silb} /\,\#\,(
     \,\text{X}\;
     \phongroup{
@@ -77,12 +78,13 @@ rule doesn't suffice\marknote{überprüfen}.
       \draw (\x.west -| arrow) node {(\x)};
     }
   }
-\]
+\)
 
-Bedingung:
+\item Bedingung:
 \begin{tabular}[t]{ll}
   (a)      & obligatorisch \\
   (b), (c) & fakultativ für Nasale,\\
            & obligatorisch für Liquide \\
   (d)      & fakultativ
 \end{tabular}
+\end{enumerate}
