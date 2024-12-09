@@ -37,6 +37,7 @@ rule doesn't suffice\marknote{überprüfen}.
 
 \newcommand\feat[1]{%
   \ensuremath{\left[%
+    \renewcommand{\arraystretch}{1}%
     \begin{tabular}{@{}c@{}}#1\end{tabular}%
   \right]}%
 }
@@ -44,6 +45,7 @@ rule doesn't suffice\marknote{überprüfen}.
 \newcommand\phongroup[1]{%
   \scalebox{0.5}[1]{\ensuremath{\displaystyle%
     \left\{\scalebox{2}[1]{%
+      \renewcommand{\arraystretch}{1.5}%
       \begin{tabular}{@{}c@{}}#1\end{tabular}%
     }\right\}%
   }}%
@@ -60,7 +62,7 @@ rule doesn't suffice\marknote{überprüfen}.
     \,\text{X}\;
     \phongroup{
       \feat{+\,obstr}\hspace*{8.5pt}\\
-      \feat{--\,obstr\\+\,nasal}\hspace*{8.5pt}\\
+      \feat{--\,obstr\\+\,nasal}\hspace*{8.5pt}\\[8pt]
       \phongroup{
         \feat{--\,obstr\\--\,nasal}\\
         \feat{--\,kons}
