@@ -58,18 +58,31 @@ rule doesn't suffice\marknote{überprüfen}.
 % \showthe\mylength
 
 \[
-  \feat{--\,obstr} \rightarrow \feat{+silb} /\,\#\,(
+  \feat{--\,obstr} \tikzmarknode{arrow}{\rightarrow} \feat{+silb} /\,\#\,(
     \,\text{X}\;
     \phongroup{
-      \feat{+\,obstr}\hspace*{8.5pt}\\
-      \feat{--\,obstr\\+\,nasal}\hspace*{8.5pt}\\[8pt]
+      \feat{\tikzmarknode{a}{+}\,obstr}\hspace*{8.5pt}\\
+      \feat{\tikzmarknode{b}{--}\,obstr\\+\,nasal}\hspace*{8.5pt}\\[8pt]
       \phongroup{
-        \feat{--\,obstr\\--\,nasal}\\
-        \feat{--\,kons}
+        \feat{--\,obstr\\\tikzmarknode{c}{--}\,nasal}\\
+        \feat{\tikzmarknode{d}{--}\,kons}
       }+
     }
   )
   \,\phonctx\,
   (\feat{--\,kons}\,\text{Y})
   \ \#
+  \tikz[overlay,remember picture]{
+    \foreach \x in {a,b,c,d}{
+      \draw (\x.west -| arrow) node {(\x)};
+    }
+  }
 \]
+
+Bedingung:
+\begin{tabular}[t]{ll}
+  (a)      & obligatorisch \\
+  (b), (c) & fakultativ für Nasale,\\
+           & obligatorisch für Liquide \\
+  (d)      & fakultativ
+\end{tabular}
