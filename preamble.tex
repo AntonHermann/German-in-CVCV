@@ -137,11 +137,20 @@
   \right]}%
 }
 
-\newcommand\phongroup[1]{%
+\newcommand\phongroup[2][c]{%
   \scalebox{0.5}[1]{\ensuremath{\displaystyle%
     \left\{\scalebox{2}[1]{%
       \renewcommand{\arraystretch}{1.5}%
-      \begin{tabular}{@{}c@{}}#1\end{tabular}%
+      \begin{tabular}{@{}#1@{}}#2\end{tabular}%
+    }\right\}%
+  }}%
+}
+
+\newcommand\phongroupi[2][c]{%
+  \scalebox{0.5}[1]{\ensuremath{%
+    \left\{\scalebox{2}[1]{%
+      \renewcommand{\arraystretch}{1.5}%
+      \begin{tabular}{@{}#1@{}}#2\end{tabular}%
     }\right\}%
   }}%
 }
