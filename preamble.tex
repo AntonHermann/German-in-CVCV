@@ -98,6 +98,7 @@
 \renewcommand\to{\ensuremath{\rightarrow}}
 \renewcommand\implies{\ensuremath{\Rightarrow}}
 
+
 % =============================================================
 % Conditional compilation
 % =============================================================
@@ -124,6 +125,33 @@
 
 % shortcut command for text quotes
 \newcommand\q[3][]{\textquote[{\cite[#1]{#2}}]{#3}}
+
+
+% =============================================================
+% phonological features, rules, derivations
+% =============================================================
+\newcommand\feat[1]{%
+  \ensuremath{\left[%
+    \renewcommand{\arraystretch}{1}%
+    \begin{tabular}{@{}c@{}}#1\end{tabular}%
+  \right]}%
+}
+
+\newcommand\phongroup[1]{%
+  \scalebox{0.5}[1]{\ensuremath{\displaystyle%
+    \left\{\scalebox{2}[1]{%
+      \renewcommand{\arraystretch}{1.5}%
+      \begin{tabular}{@{}c@{}}#1\end{tabular}%
+    }\right\}%
+  }}%
+}
+
+\newcommand\phonctx{\rule[-1.5pt]{4ex}{.5pt}}
+
+% \newlength{\mylength}
+% \settowidth{\mylength}{+}
+% \showthe\mylength
+
 
 % =============================================================
 % word structure drawing commands
