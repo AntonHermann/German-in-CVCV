@@ -212,14 +212,31 @@
   %
   \newcommand\hl[1][]{\edef\HlNext{##1}}
   %
+  \pgfkeys{/tikz/.cd, % set the path
+    skeleton name/.initial={INIT},
+    skeleton name/.get=\skeletonnodename,
+    skeleton name/.store in=\skeletonnodename,
+    n/.forward to=tikz/skeleton name,
+    gov/.initial={},
+    gov/.get=\structureRelationGov,
+    gov/.store in=\structureRelationGov,
+    gov/.default=true,
+    nogov/.style={gov=false},
+  }
   \newcommand\StructureHandleSkeletonNode[2]{ % internal, args: {C|V} style
     \ifstrequal{##1}{V}{\let\currcounter=\thevowel}{\let\currcounter=\theconsonant}
     \edef\pos{##1\currcounter}
+    % set default first, then (possibly) overwrite with args
+    \tikzset{
+      skeleton name={\currcounter},
+      gov={},
+      ##2
+    }
     \ifdef{\HlNext}{
       \node at (\pos) {\HlNext};
       \undef{\HlNext}
     }{
-      \node at (\pos) {$##1_{\currcounter}$};
+      \node at (\pos) {$##1_\text{\skeletonnodename}$};
     }
   }
   %
@@ -241,8 +258,8 @@
     \edef\prevpos{V\thevowel}
     \StructureHandleSkeletonNode{V}{##1}
     \stepcounter{vowel}
-    \ifstrequal{##1}{gov}{\Gov{V\thevowel}{\prevpos}}{}
-    \ifstrequal{##1}{nogov}{\NoGov{V\thevowel}{\prevpos}}{}
+    \ifdefstring{\structureRelationGov}{true}{\Gov{V\thevowel}{\prevpos}}{}
+    \ifdefstring{\structureRelationGov}{false}{\NoGov{V\thevowel}{\prevpos}}{}
   }
   \newcommand\emptyC{
     \StructureHandleSkeletonNode{C}{}
