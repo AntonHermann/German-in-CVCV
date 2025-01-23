@@ -210,8 +210,6 @@
   \newcommand\Lic[2]{\relation{Lic}{##1}{##2}}
   \newcommand\NoLic[2]{\norelation{Lic}{##1}{##2}}
   %
-  \newcommand\hl[1][]{\edef\HlNext{##1}}
-  %
   \pgfkeys{/tikz/.cd, % set the path
     skeleton name/.initial={INIT},
     skeleton name/.get=\skeletonnodename,
@@ -232,12 +230,7 @@
       gov={},
       ##2
     }
-    \ifdef{\HlNext}{
-      \node at (\pos) {\HlNext};
-      \undef{\HlNext}
-    }{
-      \node at (\pos) {$##1_\text{\skeletonnodename}$};
-    }
+    \node at (\pos) {$##1_\text{\skeletonnodename}$};
   }
   %
   \newcommand\V[2][]{% params: [style] vowel
