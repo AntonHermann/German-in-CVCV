@@ -211,25 +211,23 @@
   \newcommand\NoLic[2]{\norelation{Lic}{##1}{##2}}
   %
   \newcommand\structureset[1]{\pgfkeys{/structure/.cd,##1}}
-  \structureset{
-    skeleton name/.initial={INIT},
-    skeleton name/.get=\skeletonnodename,
-    skeleton name/.store in=\skeletonnodename,
-    n/.forward to=structure/skeleton name,
-    gov/.initial={},
-    gov/.get=\structureRelationGov,
-    gov/.store in=\structureRelationGov,
-    gov/.default=true,
-    nogov/.style={gov=false},
-    floating/.style={/tikz/draw opacity=0},
-  }
   \newcommand\StructureHandleSkeletonNode[2]{ % internal, args: {C|V} style
     \ifstrequal{##1}{V}{\let\currcounter=\thevowel}{\let\currcounter=\theconsonant}
     \edef\pos{##1\currcounter}
     % set default first, then (possibly) overwrite with args
     \structureset{
-      skeleton name={\currcounter},
-      gov={},
+      % name (subscript to C/V node)
+      n/.initial={\currcounter},
+      n/.get=\skeletonnodename,
+      n/.store in=\skeletonnodename,
+      % gov relation
+      gov/.initial={},
+      gov/.get=\structureRelationGov,
+      gov/.store in=\structureRelationGov,
+      gov/.default=true,
+      nogov/.style={gov=false},
+      % floating melodies
+      floating/.style={/tikz/draw opacity=0},
       ##2
     }
     \node at (\pos) {$##1_\text{\skeletonnodename}$};
