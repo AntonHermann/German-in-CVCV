@@ -210,22 +210,24 @@
   \newcommand\Lic[2]{\relation{Lic}{##1}{##2}}
   \newcommand\NoLic[2]{\norelation{Lic}{##1}{##2}}
   %
-  \pgfkeys{/tikz/.cd, % set the path
+  \newcommand\structureset[1]{\pgfkeys{/structure/.cd,##1}}
+  \structureset{
     skeleton name/.initial={INIT},
     skeleton name/.get=\skeletonnodename,
     skeleton name/.store in=\skeletonnodename,
-    n/.forward to=tikz/skeleton name,
+    n/.forward to=structure/skeleton name,
     gov/.initial={},
     gov/.get=\structureRelationGov,
     gov/.store in=\structureRelationGov,
     gov/.default=true,
     nogov/.style={gov=false},
+    floating/.style={/tikz/draw opacity=0},
   }
   \newcommand\StructureHandleSkeletonNode[2]{ % internal, args: {C|V} style
     \ifstrequal{##1}{V}{\let\currcounter=\thevowel}{\let\currcounter=\theconsonant}
     \edef\pos{##1\currcounter}
     % set default first, then (possibly) overwrite with args
-    \tikzset{
+    \structureset{
       skeleton name={\currcounter},
       gov={},
       ##2
@@ -235,16 +237,16 @@
   %
   \newcommand\V[2][]{% params: [style] vowel
     \edef\pos{V\thevowel}
-    \node[anchor=base,##1] (p\pos) at (\pos |-, -1) {##2};
-    \draw[##1] (\pos) -- (p\pos);
     \StructureHandleSkeletonNode{V}{##1}
+    \node[anchor=base] (p\pos) at (\pos |-, -1) {##2};
+    \draw (\pos) -- (p\pos);
     \stepcounter{vowel}
   }
   \newcommand\C[2][]{% params: [style] consonant
     \edef\pos{C\theconsonant}
-    \node[anchor=base,##1] (p\pos) at (\pos |-, -1) {##2};
-    \draw[##1] (\pos) -- (p\pos);
     \StructureHandleSkeletonNode{C}{##1}
+    \node[anchor=base] (p\pos) at (\pos |-, -1) {##2};
+    \draw (\pos) -- (p\pos);
     \stepcounter{consonant}
   }
   \newcommand\emptyV[1][]{ % optionally pass 'gov' or 'nogov'
@@ -303,7 +305,6 @@
   }
   \par\noindent%
   \begin{tikzpicture}[
-    floating/.style={draw opacity=0},
     % framed,
     baseline=(V1.base),
     execute at end picture={\ifblank{#2}{}{
