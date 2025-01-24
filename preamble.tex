@@ -212,7 +212,13 @@
   %
   \newcommand\structureset[1]{\pgfkeys{/structure/.cd,##1}}
   \newcommand\StructureHandleSkeletonNode[2]{ % internal, args: {C|V} style
-    \ifstrequal{##1}{V}{\let\currcounter=\thevowel}{\let\currcounter=\theconsonant}
+    \ifstrequal{##1}{V}{
+      \let\currcounter=\thevowel
+      \numdef\nextvowel{\value{vowel} + 1}
+    }{
+      \let\currcounter=\theconsonant
+      \edef\nextvowel{\thevowel}
+    }
     \edef\pos{##1\currcounter}
     % set default first, then (possibly) overwrite with args
     \structureset{
@@ -221,11 +227,19 @@
       n/.get=\skeletonnodename,
       n/.store in=\skeletonnodename,
       % gov relation
-      gov/.initial={},
-      gov/.get=\structureRelationGov,
-      gov/.store in=\structureRelationGov,
+      gov/.code={
+        \ifstrequal{####1}{true}{\Gov{V\nextvowel}{\pos}}{}
+        \ifstrequal{####1}{false}{\NoGov{V\nextvowel}{\pos}}{}
+      },
       gov/.default=true,
       nogov/.style={gov=false},
+      % lic relation
+      lic/.code={
+        \ifstrequal{####1}{true}{\Lic{V\nextvowel}{\pos}}{}
+        \ifstrequal{####1}{false}{\NoLic{V\nextvowel}{\pos}}{}
+      },
+      lic/.default=true,
+      nolic/.style={lic=false},
       % floating melodies
       floating/.style={/tikz/draw opacity=0},
       ##2
@@ -251,8 +265,6 @@
     \edef\prevpos{V\thevowel}
     \StructureHandleSkeletonNode{V}{##1}
     \stepcounter{vowel}
-    \ifdefstring{\structureRelationGov}{true}{\Gov{V\thevowel}{\prevpos}}{}
-    \ifdefstring{\structureRelationGov}{false}{\NoGov{V\thevowel}{\prevpos}}{}
   }
   \newcommand\emptyC{
     \StructureHandleSkeletonNode{C}{}
@@ -296,10 +308,8 @@
     \C{N}
     \emptyV
     \edef\secondpos{C\theconsonant}
-    \C{g}
+    \C[##1]{g}
     \draw (p\secondpos.north) -- (\firstpos.south);
-    \ifstrequal{##1}{lic}{\Lic{V\thevowel}{\secondpos}}{}
-    \ifstrequal{##1}{nolic}{\NoLic{V\thevowel}{\secondpos}}{}
   }
   \par\noindent%
   \begin{tikzpicture}[
