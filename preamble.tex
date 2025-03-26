@@ -137,6 +137,7 @@
   \right]}%
 }
 
+% vertically stacked entries surrounded by curcy braces (displaystyle)
 \newcommand\phongroup[2][c]{%
   \scalebox{0.5}[1]{\ensuremath{\displaystyle%
     \left\{\scalebox{2}[1]{%
@@ -146,11 +147,22 @@
   }}%
 }
 
+% vertically stacked entries surrounded by curcy braces (inlinestyle)
 \newcommand\phongroupi[2][c]{%
   \scalebox{0.5}[1]{\ensuremath{%
     \left\{\scalebox{2}[1]{%
       \renewcommand{\arraystretch}{1.5}%
       \begin{tabular}{@{}#1@{}}#2\end{tabular}%
+    }\right\}%
+  }}%
+}
+
+% \phongroup with adjustable line spacing, default is a lot more compact than \phongroup
+\newcommand\smallphongroup[2][1]{%
+  \scalebox{0.5}[1]{\ensuremath{%
+    \left\{\scalebox{2}[1]{%
+      \renewcommand{\arraystretch}{#1}%
+      \begin{tabular}{@{}c@{}}#2\end{tabular}%
     }\right\}%
   }}%
 }
