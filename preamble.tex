@@ -183,6 +183,12 @@
 % \usetikzlibrary{backgrounds}
 % \pgfsetlayers{background,main}
 
+\newcommand\structureset[1]{\pgfkeys{/structure/.cd,#1}}
+\structureset{
+  default n/.initial={},
+  default n/.store in=\defaultskeletonnodename,
+}
+
 \newenvironment{structure}[2][1.5]{ % args: [node_dist] subtext
   \setcounter{vowel}{1}
   \setcounter{consonant}{1}
@@ -222,7 +228,6 @@
   \newcommand\Lic[2]{\relation{Lic}{##1}{##2}}
   \newcommand\NoLic[2]{\norelation{Lic}{##1}{##2}}
   %
-  \newcommand\structureset[1]{\pgfkeys{/structure/.cd,##1}}
   \newcommand\StructureHandleSkeletonNode[2]{ % internal, args: {C|V} style
     \ifstrequal{##1}{V}{
       \let\currcounter=\thevowel
@@ -235,7 +240,7 @@
     % set default first, then (possibly) overwrite with args
     \structureset{
       % name (subscript to C/V node)
-      n/.initial={\currcounter},
+      n/.initial={\ifdef{\defaultskeletonnodename}{\defaultskeletonnodename}{\currcounter}},
       n/.get=\skeletonnodename,
       n/.store in=\skeletonnodename,
       % gov relation
@@ -295,8 +300,9 @@
     \relation{Lic}{\secondpos}{\firstpos}
   }
   \newcommand\wordstart{
-    \node (C0) at (0       , 0) {$C_0$};
-    \node (V0) at (0.5 * #1, 0) {$V_0$};
+    \def\skeletonnodename{\ifdef{\defaultskeletonnodename}{\defaultskeletonnodename}{0}}
+    \node (C0) at (0       , 0) {$C_\text{\skeletonnodename}$};
+    \node (V0) at (0.5 * #1, 0) {$V_\text{\skeletonnodename}$};
     \node[anchor=base] (word-start) at (0.25 * #1, -1) {\#};
     \draw (C0) -- (word-start) -- (V0);
     \Gov{V1}{V0}
