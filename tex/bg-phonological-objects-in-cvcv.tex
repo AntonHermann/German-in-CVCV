@@ -12,19 +12,47 @@ of different phonological objects in the language of
 \subsubsection{Long vowels}
 Long vowels span two Nuclei, one of which is the \emph{head}
 while the other needs to be licensed. Whether the first or the
-second Nucleus acts as the head is a language-dependent parameter:
-If $V_1$ is the head, $V_2$ needs licensing support from a following
-laterally enabled Nucleus. Vowel length alternations are one of the
-phenomena ascribed to varying external licensing support of
-left-headed long vowels.
-If however $V_2$ is the head, it can license its complement $V_1$
-and the long vowel is self-sufficient.
+second Nucleus acts as the head is a language-dependent parameter.
 
-\begin{structure}{}
-  \drawCV{1}
-  \C{C}
-  \longV{V}
-\end{structure}
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{.49\textwidth}
+    \centering
+    \begin{structure}{}
+      \drawCV{1}
+      \C{C}
+      \V{V}
+      \emptyC
+      \emptyV
+      \draw[dashed] (pV1) -- (V2);
+      \draw[<-] (V2.north) -- ++(0,0.2) -- node[above]{Lic} ++(1,0);
+    \end{structure}
+    \caption{head-initial long vowels}    
+    \label{fig:intro:longV:left-headed}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{.49\textwidth}
+    \centering
+    \begin{structure}{}
+      \drawCV{1}
+      \C{C}
+      \longV{V}
+    \end{structure}
+    \caption{head-final long vowels}
+    \label{fig:intro:longV:right-headed}
+  \end{subfigure}
+  \caption{2 kinds of long vowels}
+  \label{fig:intro:longV}
+  % \captionsource{long vowel headedness}{\cite[p.~267]{scheer2004}}
+\end{figure}
+
+Since government and licensing are strictly directional
+(both regressive), a left-headed long vowel needs external
+licensing support for its complement
+(\cref{fig:intro:longV:left-headed}).
+
+Head-final long vowels on the other hand are self-sufficient,
+their head licenses its complement (\cref{fig:intro:longV:right-headed}).
 
 
 \subsubsection{Coda}\label{intro:obj:coda}
