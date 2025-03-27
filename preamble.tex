@@ -299,13 +299,26 @@
     \draw[dashed] (p\secondpos) -- (\firstpos);
     \relation{Lic}{\secondpos}{\firstpos}
   }
-  \newcommand\wordstart{
-    \def\skeletonnodename{\ifdef{\defaultskeletonnodename}{\defaultskeletonnodename}{0}}
-    \node (C0) at (0       , 0) {$C_\text{\skeletonnodename}$};
-    \node (V0) at (0.5 * #1, 0) {$V_\text{\skeletonnodename}$};
+  \newcommand\wordstart[1][]{ % params: nogov, nV=<name>, nC=<name>
+    \structureset{
+      % C name (subscript to C node)
+      nC/.initial={\ifdef{\defaultskeletonnodename}{\defaultskeletonnodename}{0}},
+      nC/.get=\skeletonnodenameC,
+      nC/.store in=\skeletonnodenameC,
+      % V name (subscript to V node)
+      nV/.initial={\ifdef{\defaultskeletonnodename}{\defaultskeletonnodename}{0}},
+      nV/.get=\skeletonnodenameV,
+      nV/.store in=\skeletonnodenameV,
+      % nogov
+      nogov/.store in=\wordstartGovDisabled,
+      ##1
+    }
+    
+    \node (C0) at (0       , 0) {$C_\text{\skeletonnodenameC}$};
+    \node (V0) at (0.5 * #1, 0) {$V_\text{\skeletonnodenameV}$};
     \node[anchor=base] (word-start) at (0.25 * #1, -1) {\#};
     \draw (C0) -- (word-start) -- (V0);
-    \Gov{V1}{V0}
+    \ifdef{\wordstartGovDisabled}{}{\Gov{V1}{V0}}
   }
   \newcommand\fen[1][]{ % optionally pass 'domain' for domain-final (but not word-final) FEN
     \edef\pos{V\thevowel}
