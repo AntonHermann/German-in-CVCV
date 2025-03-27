@@ -121,8 +121,11 @@ of Codas.
 \TODO{}
 
 \subsubsection{Branching Onsets (Infrasegmental Government)}
-The previously introduced mechanisms fail to explain the phenomenon classically described
-as branching Onsets. To \tr{explain (synonym)} these, a new lateral relation called
+The previously introduced rules fail to account for branching Onsets like in
+\ex{Brett} or \ex{Vergleich} where there is an empty Nucleus either at the word start or
+following another empty Nucleus.
+
+To explain these, a new lateral relation called
 \gls{IG} is introduced. It satisfies the
 \gls{ECP}\marknote{introduce earlier}
 of an empty Nucleus by establishing a relation between the two surrounding consonants.
@@ -137,17 +140,37 @@ therefore allowing situations where two empty Nuclei appear in a row
 
 \begin{structure}{\ex{Brett} \ti{[bKEt]}}
   \structureset{default n=}
-  \wordstart[nogov, nV=0]
+  \wordstart[nogov, nV=1]
   \C{b}
   \emptyV[n=\smiley]
   \C{\ti{K}}
-  \V[n=1]{\ti{E}}
+  \V[n=2]{\ti{E}}
   \C{t}
   \emptyV
 
   \IG{C1}{C2}
   \Gov[over]{V2}{V0}
   \Lic{V2}{C2}
+\end{structure}
+
+\begin{structure}{\ex{Vergleich} \ti{[f@Kgl\t*{aI}ç]}}
+  \structureset{default n=}
+  \drawCV{6}
+  \wordstart
+  \C{f}
+  \V{\ti{@}}
+  \C{\ti K}
+  \emptyV[n=1]
+  \C{g}
+  \emptyV[n=\smiley]
+  \C{l}
+  \V[n=2]{\ti{\t*{aI}}}
+  \C{ç}
+  \emptyV
+
+  \IG{C3}{C4}
+  \Gov[over]{V4}{V2}
+  \Lic{V4}{C4}
 \end{structure}
 
 \TODO{(how) are branching onsets parametrized?}
