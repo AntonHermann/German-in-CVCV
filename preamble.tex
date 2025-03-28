@@ -242,6 +242,7 @@
     }
     \edef\pos{##1\currcounter}
     % set default first, then (possibly) overwrite with args
+    \newif\ifstructureSegmentFloating
     \structureset{
       % name (subscript to C/V node)
       n/.initial={\ifdef{\defaultskeletonnodename}{\defaultskeletonnodename}{\currcounter}},
@@ -262,7 +263,8 @@
       lic/.default=true,
       nolic/.style={lic=false},
       % floating melodies
-      floating/.style={/tikz/draw opacity=0},
+      floating/.is if=structureSegmentFloating,
+      floating=false,
       ##2
     }
     \node at (\pos) {$##1_\text{\skeletonnodename}$};
@@ -272,14 +274,18 @@
     \edef\pos{V\thevowel}
     \StructureHandleSkeletonNode{V}{##1}
     \node[anchor=base] (p\pos) at (\pos |-, -1) {##2};
-    \draw (\pos) -- (p\pos);
+    \ifstructureSegmentFloating\else
+      \draw (\pos) -- (p\pos);
+    \fi
     \stepcounter{vowel}
   }
   \newcommand\C[2][]{% params: [style] consonant
     \edef\pos{C\theconsonant}
     \StructureHandleSkeletonNode{C}{##1}
     \node[anchor=base] (p\pos) at (\pos |-, -1) {##2};
-    \draw (\pos) -- (p\pos);
+    \ifstructureSegmentFloating\else
+      \draw (\pos) -- (p\pos);
+    \fi
     \stepcounter{consonant}
   }
   \newcommand\emptyV[1][]{ % optionally pass 'gov' or 'nogov'
